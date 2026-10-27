@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pqblocks-qubo-bench"
+version = "0.1.0"
+description = "Benchmarking harness and standard instance loaders for quantum-inspired optimization algorithms against classical baselines."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.11"
+authors = [{name = "The PQBlocks Authors"}]
+keywords = ["qubo", "benchmarks", "tts", "time-to-solution", "ising", "optimization", "quantum-inspired", "loaders"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = ["PyYAML", "dimod", "dwave-neal", "jsonschema", "numba", "numpy", "openjij", "ortools", "dimod", "numpy", "pyyaml", "jsonschema"]
+
+[project.optional-dependencies]
+test = ["pytest", "dimod", "numpy", "pyyaml", "jsonschema", "dwave-neal", "openjij", "ortools"]
+
+[project.scripts]
+pqblocks-qubo-bench = "pqblocks_qubo_bench.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/PQBlocks/qubo-benchmark-harness"
+Documentation = "https://github.com/PQBlocks/qubo-benchmark-harness#readme"
+Source = "https://github.com/PQBlocks/qubo-benchmark-harness"
+Changelog = "https://github.com/PQBlocks/qubo-benchmark-harness/blob/main/CHANGELOG.md"
+Issues = "https://github.com/PQBlocks/qubo-benchmark-harness/issues"
+Security = "https://github.com/PQBlocks/qubo-benchmark-harness/security/policy"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
